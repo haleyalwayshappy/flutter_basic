@@ -29,16 +29,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(    // 상단부
         title: Text('Bottom Navigation'),
+        actions: <Widget>[ // 상단 버튼
+          IconButton(
+            icon:Icon(
+              Icons.add,
+              color:Colors.black,
+            ),
+            onPressed: (){},
+          )
+        ],
       ),
-      body: Center(
+      body: Center(  // 화면 부
         child: Text(
           '$_index 페이지',
           style: TextStyle(fontSize: 40),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(  //바텀 네비게이션
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
           setState(() {
@@ -46,11 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
         currentIndex: _index, // 선택된 인덱스
-        items: <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[ //네비게이션 바 리스
           BottomNavigationBarItem(
             title: Text('1번'),
             icon: Icon(Icons.home),
-            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             title: Text('2번'),
