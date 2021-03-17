@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-
+/** 바텀 네비게이션 클래스!!!!*/
 class Bottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      color: Colors.black,  // 바텀 컬러
       child: Container(
-        height: 60,
+        height: 60,  // 높이
         child: TabBar(
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white,
-          indicatorColor: Colors.transparent,
+          labelColor: Colors.white,  // 아이콘 색상
+          unselectedLabelColor: Colors.white,  // 선택되지않은 아이콘 색상
+          indicatorColor: Colors.red,  //선택 된 곳 바닥 줄 색상
           tabs: <Widget>[
             Tab(
               icon: Icon(
-                Icons.home,
-                size: 18,
+                Icons.home,  // 아이콘
+                size: 18,   // 크기
               ),
-              child: Text(
+              child: Text(  //이름
                 '홈',
-                style: TextStyle(fontSize: 9),
+                style: TextStyle(fontSize: 9),  // 폰트 크기
               ),
             ),
             Tab(
@@ -52,6 +52,7 @@ class Bottom extends StatelessWidget {
                 style: TextStyle(fontSize: 9),
               ),
             ),
+
           ],
         ),
       ),

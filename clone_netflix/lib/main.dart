@@ -14,8 +14,8 @@ class _MyAppState extends State<MyApp> {
   TabController controller;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'hongFlix',
+    return MaterialApp(  // 화면에 표시되는 부분
+      title: 'hongFlix',   // 타이틀
       theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: Colors.black,
@@ -29,26 +29,26 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               HomeScreen(),
               Container(
-                //2페이지
+                //검색 페이지
                 child: Center(
                   child: Text('search'),
                 ),
               ),
               Container(
-                // 3페이지
+                // 저장한 컨텐츠목록 페이지
                 child: Center(
                   child: Text('center'),
                 ),
               ),
               Container(
-                //4페이지
+                // 더보기 페이지
                 child: Center(
                   child: Text('more'),
                 ),
               ),
             ],
           ),
-          bottomNavigationBar: Bottom(),
+          bottomNavigationBar: Bottom(),  // 따로 바텀네비게이션 페이지를 만든뒤 이렇게 선언!
         ),
       ),
     );

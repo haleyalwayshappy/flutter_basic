@@ -1,7 +1,11 @@
 import 'package:clone_netflix/model/model_movie.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
+/** 진짜 뭣같은 이 carousel slider...
+ * 이거 사용하려면 Pubspec.yaml에서 carousel_slider: ^3.0.0 선언해준뒤 사용
+ * 위에 import에도 추가해주어야한다.. 원래는 자동 추가가 된다던데.. 왜안됐을ㄹ까...
+ * 이거 사용할때마다 버젼 체크 !! 필수!!
+ * */
 class CarouselImage extends StatefulWidget {
   final List<Movie> movies;
   CarouselImage({this.movies});
@@ -52,7 +56,7 @@ class _CarouselImageState extends State<CarouselImage> {
           ),
           Container(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,// 간격
               children: <Widget>[
                 Container(
                   child: Column(
@@ -114,7 +118,7 @@ class _CarouselImageState extends State<CarouselImage> {
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: makeIndicator(likes, _currentPage),
+              children: makeIndicator(likes, _currentPage),  // 인디케이터와 연결
             ),
           )
         ],
@@ -123,7 +127,7 @@ class _CarouselImageState extends State<CarouselImage> {
   }
 }
 
-//  ....  indicator 생성
+//  ....  indicator 생성 (하단에 .... 있는거)
 List<Widget> makeIndicator(List list, int _currentPage) {
   List<Widget> results = [];
   for (var i = 0; i < list.length; i++) {
