@@ -1,6 +1,8 @@
 import 'package:clone_netflix/model/model_movie.dart';
+import 'package:clone_netflix/screen/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+
 /** 진짜 뭣같은 이 carousel slider...
  * 이거 사용하려면 Pubspec.yaml에서 carousel_slider: ^3.0.0 선언해준뒤 사용
  * 위에 import에도 추가해주어야한다.. 원래는 자동 추가가 된다던데.. 왜안됐을ㄹ까...
@@ -8,7 +10,9 @@ import 'package:carousel_slider/carousel_slider.dart';
  * */
 class CarouselImage extends StatefulWidget {
   final List<Movie> movies;
+
   CarouselImage({this.movies});
+
   _CarouselImageState createState() => _CarouselImageState();
 }
 
@@ -56,20 +60,20 @@ class _CarouselImageState extends State<CarouselImage> {
           ),
           Container(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,// 간격
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // 간격
               children: <Widget>[
                 Container(
                   child: Column(
                     children: <Widget>[
                       likes[_currentPage]
                           ? IconButton(
-                              icon: Icon(Icons.check),
-                              onPressed: () {},
-                            )
+                        icon: Icon(Icons.check),
+                        onPressed: () {},
+                      )
                           : IconButton(
-                              icon: Icon(Icons.add),
-                              onPressed: () {},
-                            ),
+                        icon: Icon(Icons.add),
+                        onPressed: () {},
+                      ),
                       Text(
                         '내가 찜한 콘텐츠',
                         style: TextStyle(fontSize: 11),
@@ -104,7 +108,15 @@ class _CarouselImageState extends State<CarouselImage> {
                   child: Column(children: <Widget>[
                     IconButton(
                       icon: Icon(Icons.info),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute<Null>(
+                            fullscreenDialog: true,
+                            builder: (BuildContext context) {
+                              return DetailScreen(
+                                movie: movies[_currentPage],
+                              );
+                            }));
+                      },
                     ),
                     Text(
                       '정보',
@@ -118,7 +130,7 @@ class _CarouselImageState extends State<CarouselImage> {
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: makeIndicator(likes, _currentPage),  // 인디케이터와 연결
+              children: makeIndicator(likes, _currentPage), // 인디케이터와 연결
             ),
           )
         ],
